@@ -37,8 +37,7 @@
 
     if (!!window.navigator.serviceWorker) {
         window.navigator.serviceWorker
-            .register('../sw.js', { scope: '/' })
-            .then(() => console.log('Service Worker Registered Succefully!'));
+            .register('sw.js');
     }
 
     let deferredEvent;

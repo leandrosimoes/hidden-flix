@@ -7,7 +7,7 @@
 				'Content-Type': 'application/json; charset=utf-8'
 			}
 		}
-        fetch('/data/netflix-codes.json', options)
+        fetch('data/netflix-codes.json', options)
             .then(response => response.json())
             .then(categories => {
                 if (filter) {

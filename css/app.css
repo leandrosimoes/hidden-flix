@@ -43,7 +43,7 @@ button {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    box-shadow: 0 3px 5px rgba(0,0,0,.8);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .8);
 }
 
 header img {
@@ -51,7 +51,7 @@ header img {
     margin-bottom: 20px;
 }
 
-main > div {
+main>div {
     width: 100vw;
 }
 
@@ -64,7 +64,7 @@ main > div {
     padding-bottom: 16vh;
 }
 
-#categories-area > div {
+#categories-area>div {
     width: 100vw;
 }
 
@@ -95,4 +95,47 @@ footer input {
     border: none;
     font-size: 4vw;
     padding: 3vh 2vw;
+}
+
+/* SCROOL BAR */
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cf170e;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #cf170e;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #cf170e;
+}
+
+::-webkit-scrollbar-track {
+    background: #1d1d1d;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #1c1c1c;
+}
+
+::-webkit-scrollbar-track:active {
+    background: #1b1b1b;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
 }

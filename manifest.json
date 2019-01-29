@@ -2,7 +2,7 @@
     "name": "Netflix Hidden Codes",
     "short_name": "HiddenFlix",
     "theme_color": "#e50914",
-    "background_color": "#1d1d1d",
+    "background_color": "#111111",
     "display": "standalone",
     "Scope": "",
     "start_url": "index.html",

@@ -1,7 +1,7 @@
-const cacheName = 'hiddenflix-cache-v2-0-0'
+const CACHE_NAME_VERSION = 'hiddenflix-v2-0-1'
 self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(cacheName).then(cache => {
+        caches.open(CACHE_NAME_VERSION).then(cache => {
             return cache.addAll(
                 [
                     'css/app.css',
@@ -51,6 +51,20 @@ self.addEventListener('install', event => {
     );
 })
 
+self.addEventListener('activate', function (event) {
+    event.waitUntil(
+        caches.keys()
+            .then(keys => {
+                return Promise.all(keys.map(key => {
+                    if (key !== CACHE_NAME_VERSION) {
+                        return caches.delete(key);
+                    }
+                }))
+            })
+    )
+    return self.clients.claim()
+});
+
 self.addEventListener('message', function (event) {
   if (event.data.action === 'skipWaiting') {
     self.skipWaiting();
@@ -59,7 +73,7 @@ self.addEventListener('message', function (event) {
 
 self.addEventListener('fetch', event => {
     event.respondWith(
-        caches.open(cacheName).then(cache => {
+        caches.open(CACHE_NAME_VERSION).then(cache => {
             return cache.match(event.request).then(response => {
                 return response || fetch(event.request).then(response => {
                     if ((event.request.url.indexOf('http') > -1)) {

@@ -1,4 +1,4 @@
-const CACHE_NAME_VERSION = 'hiddenflix-v2-0-3'
+const CACHE_NAME_VERSION = 'hiddenflix-v2-0-4'
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME_VERSION).then(cache => {

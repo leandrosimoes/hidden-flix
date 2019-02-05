@@ -11,20 +11,21 @@
 
     <link rel="canonical" href="https://lesimoes.com.br/hidden-flix/">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="./css/app.css">
+
+    <!-- <link rel="canonical" href="https://lesimoes.com.br/hidden-flix/"> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="manifest" href="./manifest.json">
     <link rel="shortcut icon" href="./favicon.ico">
     <link rel="icon" type="image/png" href="./images/icons/favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="./images/icons/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="./images/icons/favicon-96x96.png" sizes="96x96">
-    <meta name="apple-touch-icon" content="./images/icons/icon-192x192.png" sizes="192x192">
-    <meta name="apple-touch-icon" content="./images/icons/icon-394x394.png" sizes="394x394">
-    <meta name="apple-touch-icon" content="./images/icons/icon-512x512.png" sizes="512x512">
-    <meta name="apple-touch-icon" content="./images/icons/icon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="./images/icons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="stylesheet" href="./css/app.css">
 
     <!-- APPLE STUFF -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#111111">
     <meta name="apple-mobile-web-app-title" content="HiddenFlix">
+    <meta name="apple-touch-icon" content="./images/icons/apple-icon-57x57.png" sizes="57x57">
     <meta name="apple-touch-icon" content="./images/icons/apple-icon-60x60.png" sizes="60x60">
     <meta name="apple-touch-icon" content="./images/icons/apple-icon-72x72.png" sizes="72x72">
     <meta name="apple-touch-icon" content="./images/icons/apple-icon-76x76.png" sizes="76x76">
@@ -32,10 +33,12 @@
     <meta name="apple-touch-icon" content="./images/icons/apple-icon-120x120.png" sizes="120x120">
     <meta name="apple-touch-icon" content="./images/icons/apple-icon-144x144.png" sizes="144x144">
     <meta name="apple-touch-icon" content="./images/icons/apple-icon-152x152.png" sizes="152x152">
+    <meta name="apple-touch-icon" content="./images/icons/apple-icon-180x180.png" sizes="180x180">
+    <link rel="mask-icon" href="./images/icons/safari-pinned-tab.svg" color="#5bbad5">
     <!-- END APPLE STUFF -->
 
     <!-- MICROSOFT STUFF -->
-    <meta name="msapplication-TileImage" content="./images/icons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="./images/icons/mstile-144x144.png">
     <meta name="msapplication-TileColor" content="#111111">
     <meta name="msapplication-config" content="./images/icons/browserconfig.xml">
     <!-- END MICROSOFT STUFF -->
@@ -44,7 +47,7 @@
 
 <body class="column">
     <header class="row justify-content-center">
-        <img src="./images/icons/icon-512x512.png" alt="HiddenFlix Logo">
+        <img src="./images/icons/android-chrome-512x512.png" alt="HiddenFlix Logo">
     </header>
     <main class="row justify-content-center">
         <div class="column">
@@ -77,6 +80,7 @@
     <script src="./js/knockout.min.js"></script>
     <script src="./js/knockout.mapping.min.js"></script>
     <script src="./js/knockout.bindings.js"></script>
+    <script src="./js/sw-update-checker.js"></script>
     <script src="./js/app.js"></script>
 </body>
 

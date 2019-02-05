@@ -1,9 +1,9 @@
 ;
-(() => {
+(window => {
     let newWorker;
     if (!!window.navigator.serviceWorker) {
         window.navigator.serviceWorker
-            .register('sw.js');
+            .register('./sw.js');
     }
 
     let deferredEvent;
@@ -62,9 +62,9 @@
             }
         }
         self.Update = () => {
-            !!newWorker && !!newWorker.postMessage && newWorker.postMessage({
-                action: 'skipWaiting'
-            });
+            if (window.swUpdate) {
+                window.swUpdate()
+            }
         }
 
         // observables
@@ -97,31 +97,11 @@
 
     window.hiddenFlixViewModel.Search();
 
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js').then(reg => {
-            reg.addEventListener('updatefound', () => {
-                // A wild service worker has appeared in reg.installing!
-                newWorker = reg.installing;
-                newWorker.addEventListener('statechange', () => {
-                    window.hiddenFlixViewModel.hasUpdate(false)
-
-                    // Has network.state changed?
-                    switch (newWorker.state) {
-                        case 'installed':
-                            if (navigator.serviceWorker.controller) {
-                                // new update available
-                                window.hiddenFlixViewModel.hasUpdate(true)
-                            }
-                    }
-                });
-            });
-        });
-        
-        let refreshing;
-        navigator.serviceWorker.addEventListener('controllerchange', function () {
-            if (refreshing) return;
-            window.location.reload();
-            refreshing = true;
-        });
+    // see sw-update-checker.js
+    if (window.checkSwUpdate) {
+        window.hiddenFlixViewModel.hasUpdate(false)
+        window.checkSwUpdate().then(result => {
+            window.hiddenFlixViewModel.hasUpdate(!!result)
+        })
     }
-})()
+})(window)

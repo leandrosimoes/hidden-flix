@@ -17,22 +17,22 @@
             })
         }
     }
-
+    
     ko.bindingHandlers.forIn = {
-        transformObject: function (obj) {
+        transformObject: (obj) => {
           let properties = [];
-          ko.utils.objectForEach(obj, function (key, value) {
+          ko.utils.objectForEach(obj, (key, value) => {
             properties.push({ key: key, value: value });
           });
           return properties;
         },
         init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
-          let properties = ko.pureComputed(function () {
+          let properties = ko.pureComputed(() => {
             let obj = ko.utils.unwrapObservable(valueAccessor());
             return ko.bindingHandlers.forIn.transformObject(obj);
           });
           ko.applyBindingsToNode(element, { foreach: properties }, bindingContext);
           return { controlsDescendantBindings: true };
         }
-      };
+    };
 })()

@@ -104,4 +104,11 @@
             window.hiddenFlixViewModel.hasUpdate(!!result)
         })
     }
+
+    if (window.caches) {
+        window.caches.keys().then(keys => {
+            const version = keys[0].match(/(v)(\d{1,10})(\-)(\d{1,10})(\-)(\d{1,10})/g)[0].replace(/\-/g, '.')
+            document.querySelector('#version-area span').innerHTML = version
+        })
+    }
 })(window)

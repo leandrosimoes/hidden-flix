@@ -1,4 +1,4 @@
-const CACHE_NAME_VERSION = 'hiddenflix-v2-0-5'
+const CACHE_NAME_VERSION = 'hiddenflix-v2-0-7'
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME_VERSION).then(cache => {
@@ -41,6 +41,7 @@ self.addEventListener('install', event => {
                     './images/icons/ms-icon-150x150.png',
                     './images/icons/ms-icon-310x310.png',
                     './js/app.js',
+                    './js/lodash.js',
                     './js/knockout.min.js',
                     './js/knockout.mapping.min.js',
                     './js/knockout.bindings.js',

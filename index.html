@@ -50,15 +50,21 @@
         <div class="column">
             <div id="btn-install-area" class="row justify-content-center">
                 <button type="button" id="btn-install" data-bind="visible: notInstalled, click: Install">Install App</button>
-                <button type="button" id="btn-updates" data-bind="visible: hasUpdate, click: Update">Update Available<br>(click to update)</button>
+                <button type="button" id="btn-updates" data-bind="visible: hasUpdate, click: Update">Update Available<br>(click
+                    to update)</button>
             </div>
             <div id="categories-area" class="row justify-content-center">
                 <div class="column align-items-center" data-bind="visible: !HasCategories()">
                     <h1>No categories found</h1>
                 </div>
-                <div class="column align-items-center" data-bind="foreach: categories, visible: HasCategories">
-                    <div class="category">
-                        <button class="btn-category" type="button" data-bind="html: name, click: function() { $parent.OpenCategory($data) }"></button>
+                <div class="column align-items-center" data-bind="forIn: groups, visible: HasCategories">
+                    <div class="group">
+                        <h1 data-bind="html: key"></h1>
+                        <div data-bind="foreach: value">
+                            <div class="category">
+                                <button class="btn-category" type="button" data-bind="html: name, click: function() { $root.OpenCategory($data) }"></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -67,6 +73,7 @@
     <footer>
         <input id="input-search" type="text" placeholder="Type to search" data-bind="value: inputSearch, delayCallback: { callback: Search }">
     </footer>
+    <script src="./js/lodash.js"></script>
     <script src="./js/knockout.min.js"></script>
     <script src="./js/knockout.mapping.min.js"></script>
     <script src="./js/knockout.bindings.js"></script>

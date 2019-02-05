@@ -41,7 +41,12 @@
                         categories = categories.filter(c => c.name.toLowerCase().indexOf(filter.toLowerCase()) > -1)
                     }
 
-                    self.categories(categories)
+                    let groups = []
+                    if (!!categories && categories.length) {
+                        groups = _.groupBy(categories, c => c.name.toUpperCase().split('')[0])
+                    }
+
+                    self.groups(groups)
                 })
         }
         self.Install = () => {
@@ -66,11 +71,11 @@
         self.inputSearch = ko.observable('')
         self.notInstalled = ko.observable(true)
         self.hasUpdate = ko.observable(false)
-        self.categories = ko.observable([])
+        self.groups = ko.observable([])
 
         // computeds
         self.HasCategories = ko.computed(() => {
-            return self.categories().length > 0
+            return !!Object.keys(self.groups()) && Object.keys(self.groups()).length > 0
         })
         self.ShowUpdateButton = ko.computed(() => {
             return !self.notInstalled() && !!self.hasUpdate();
